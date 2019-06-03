@@ -1,4 +1,4 @@
-# NLP-Comp/e/tition-DesignPattern
+# NLP-Competition-DesignPattern
 
 ## updated on 2019/6/3
 
