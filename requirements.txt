@@ -1,0 +1,9 @@
+setuptools==39.1.0
+h5py==2.8.0
+pyltp==0.2.1
+bert_serving_server==1.9.1
+gensim==3.6.0
+tensorflow==1.13.1
+numpy==1.16.2
+pandas==0.23.4
+typing==3.6.6
