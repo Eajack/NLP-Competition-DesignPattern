@@ -1,1 +1,1 @@
-pipreqs F:\STUDYING\MyProjects\pycharm\NLP-Competition-DesignPattern  --encoding=utf8
+pipreqs ./NLP-Competition-DesignPattern  --encoding=utf8
