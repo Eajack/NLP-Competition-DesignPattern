@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://www.cnblogs.com/echo-cheng/p/8561171.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园</title>
+    <meta property="og:description" content="1.准备语料 将分好词的语料保存为×××.txt 2.准备源码 下载地址：https://github.com/stanfordnlp/GloVe，解压后将语料×">
+    <link type="text/css" rel="stylesheet" href="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/bundle-MountainInk.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/bundle-MountainInk-mobile.css">
+    <link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/echo-cheng/rss">
+    <link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/echo-cheng/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/echo-cheng/wlwmanifest.xml">
+    <script async="" src="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/encoder.js.下载"></script><script src="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+    <script>var currentBlogId=352732;var currentBlogApp='echo-cheng',cb_enable_mathjax=false;var isLogined=false;</script>
+    <script src="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="https://www.cnblogs.com/echo-cheng/"><img id="blogLogo" src="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/echo-cheng/">hello_echo</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/echo-cheng/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/hello_echo">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/echo-cheng/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/echo-cheng/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 10&nbsp; </span>
+<span id="stats_article_count">文章 - 2&nbsp; </span>
+<span id="stats-comment_count">评论 - 0</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+        <div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/echo-cheng/p/8561171.html">使用GloVe(c语言版)训练自定义语料</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p>1.准备语料</p>
+<p>将分好词的语料保存为×××.txt</p>
+<p>2.准备源码</p>
+<p>下载地址：https://github.com/stanfordnlp/GloVe，解压后将语料×××.txt添加到GloVe-master文件夹下</p>
+<p>3.修改训练语料地址</p>
+<p>打开demo.sh文件，由于默认是下载TXT8作为语料，故将这段代码删除，并修改CORPUS=×××.txt，最终文件内容如下：</p>
+<p>其他应该都可以自行修改。</p>
+<p><img src="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/1158121-20180313195756640-1193864762.png" alt=""></p>
+<p>4.执行</p>
+<p>打开终端，进入GloVe-master文件后：</p>
+<p>(1)make</p>
+<p>(2)./demo.sh</p>
+<p>5.修改词向量文件</p>
+<p>训练后会得到vetors.txt，打开后在第一行加上vacob_size vector_size，这样才能用word2vec的load函数加载成功</p>
+<p>vacob_size vector_size可在训练时看到：</p>
+<p><img src="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/1158121-20180313200305439-1183561208.png" alt=""></p>
+<p>6.加载使用巽寮的词向量</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #0000ff;">from</span> gensim.models <span style="color: #0000ff;">import</span><span style="color: #000000;"> Word2Vec  
+</span><span style="color: #008080;">2</span>   
+<span style="color: #008080;">3</span> model = Word2Vec.load_word2vec_format(‘vectors.txt’, binary=False) </pre>
+</div>
+<p>接下来的使用就和word2vec一样</p>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(8561171,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;4c44e61f-382f-e711-9fc1-ac853d9f53cc&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/echo-cheng/" target="_blank"><img src="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/20170502210732.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/echo-cheng/">hello_echo</a><br>
+            <a href="https://home.cnblogs.com/u/echo-cheng/followees">关注 - 0</a><br>
+            <a href="https://home.cnblogs.com/u/echo-cheng/followers">粉丝 - 1</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;4c44e61f-382f-e711-9fc1-ac853d9f53cc&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(8561171,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(8561171,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="https://www.cnblogs.com/echo-cheng/p/7967221.html" class="p_n_p_prefix">« </a> 上一篇：<a href="https://www.cnblogs.com/echo-cheng/p/7967221.html" title="发布于2017-12-03 20:46">jieba分词的原理</a><br><a href="https://www.cnblogs.com/echo-cheng/p/9210465.html" class="p_n_p_prefix">» </a> 下一篇：<a href="https://www.cnblogs.com/echo-cheng/p/9210465.html" title="发布于2018-06-21 18:27">中文词性标注解释及句法分析标注解释</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2018-03-13 20:38</span> <a href="https://www.cnblogs.com/echo-cheng/">hello_echo</a> 阅读(<span id="post_view_count">1010</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=8561171" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/echo-cheng/p/8561171.html#" onclick="AddToWz(8561171);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=352732,cb_entryId=8561171,cb_blogApp=currentBlogApp,cb_blogUserGuid='4c44e61f-382f-e711-9fc1-ac853d9f53cc',cb_entryCreatedDate='2018/3/13 20:38:00';loadViewCount(cb_entryId);var cb_postType=1;var isMarkdown=false;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/echo-cheng/p/8561171.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/echo-cheng/p/8561171.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-工控&#39;)">【推荐】超50万C++/C#源码: 大型实时仿真组态图形源码</a><br><a href="https://q.cnblogs.com/" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-博问&#39;)">【推荐】程序员问答平台，解决您开发中遇到的技术难题</a><br></div>
+<div id="opt_under_post"></div>
+<script async="async" src="./使用GloVe(c语言版)训练自定义语料 - hello_echo - 博客园_files/gpt.js.下载"></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+  googletag.cmd.push(function() {
+        googletag.defineSlot('/1090369/C1', [300, 250], 'div-gpt-ad-1546353474406-0').addService(googletag.pubads());
+        googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+  });
+</script>
+<div id="cnblogs_c1" class="c_ad_block">
+    <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>相关博文：</b><br>·  <a href="https://www.cnblogs.com/gcczhongduan/p/5198169.html" target="_blank" onclick="clickRecomItmem(5198169)">glove入门实战</a><br>·  <a href="https://www.cnblogs.com/crackpotisback/p/8370898.html" target="_blank" onclick="clickRecomItmem(8370898)">训练中文词向量</a><br>·  <a href="https://www.cnblogs.com/zhangtianyuan/p/6909129.html" target="_blank" onclick="clickRecomItmem(6909129)">用word2vec对语料进行训练</a><br>·  <a href="https://www.cnblogs.com/gcter/p/8695842.html" target="_blank" onclick="clickRecomItmem(8695842)">Windows10下python3.5对维基百科语料用word2vec进行训练寻找同义词相似度</a><br>·  <a href="https://www.cnblogs.com/xyx-hfut/p/8615342.html" target="_blank" onclick="clickRecomItmem(8615342)">Python Word2Vec训练和测试词向量</a><br></div></div>
+<div id="cnblogs_c2" class="c_ad_block">
+    <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;"></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block"><b>最新新闻</b>：<br> ·  <a href="https://news.cnblogs.com/n/626261/" target="_blank">高通的二十年手机行业“统治”之路</a><br> ·  <a href="https://news.cnblogs.com/n/626260/" target="_blank">索尼打造能传输60英里的IoT芯片</a><br> ·  <a href="https://news.cnblogs.com/n/626259/" target="_blank">微软警告有百万电脑仍然没有修复一个高危漏洞</a><br> ·  <a href="https://news.cnblogs.com/n/626258/" target="_blank">想改变Facebook？ 先改变扎克伯格！</a><br> ·  <a href="https://news.cnblogs.com/n/626257/" target="_blank">外媒：美国政府反垄断调查让谷歌雪上加霜</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+ if(enablePostBottom()) {
+    codeHighlight();
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverT2();
+    deliverC1();
+    deliverC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);  
+}
+</script>
+</div>
+
+    
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/echo-cheng/">hello_echo</a><br>园龄：<a href="https://home.cnblogs.com/u/echo-cheng/" title="入园时间：2017-05-02">2年1个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/echo-cheng/followers/">1</a><br>关注：<a href="https://home.cnblogs.com/u/echo-cheng/followees/">0</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;4c44e61f-382f-e711-9fc1-ac853d9f53cc&#39;)">+加关注</a></div><script>getFollowStatus('4c44e61f-382f-e711-9fc1-ac853d9f53cc')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2019/05/01&#39;);return false;">&lt;</a></td><td align="center">2019年6月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2019/07/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td class="CalWeekendDay" align="center">1</td></tr><tr><td class="CalTodayDay" align="center">2</td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td class="CalWeekendDay" align="center">8</td></tr><tr><td class="CalWeekendDay" align="center">9</td><td align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td class="CalWeekendDay" align="center">15</td></tr><tr><td class="CalWeekendDay" align="center">16</td><td align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td class="CalWeekendDay" align="center">22</td></tr><tr><td class="CalWeekendDay" align="center">23</td><td align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td class="CalWeekendDay" align="center">29</td></tr><tr><td class="CalWeekendDay" align="center">30</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/echo-cheng/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="https://www.cnblogs.com/echo-cheng/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="https://www.cnblogs.com/echo-cheng/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="https://www.cnblogs.com/echo-cheng/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="https://www.cnblogs.com/echo-cheng/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+<div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/echo-cheng/category/1047462.html">python(1)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="https://www.cnblogs.com/echo-cheng/archive/2018/06.html">2018年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="https://www.cnblogs.com/echo-cheng/archive/2018/03.html">2018年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="https://www.cnblogs.com/echo-cheng/archive/2017/12.html">2017年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="https://www.cnblogs.com/echo-cheng/archive/2017/09.html">2017年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="https://www.cnblogs.com/echo-cheng/archive/2017/08.html">2017年8月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="https://www.cnblogs.com/echo-cheng/archive/2017/05.html">2017年5月 (4)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap" style="display: none;">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"></div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/echo-cheng/p/6814909.html">1. 线程的启动的两种方法，Runnable接口，run（）的调用(51781)</a></li><li><a href="https://www.cnblogs.com/echo-cheng/p/7967221.html">2. jieba分词的原理(17782)</a></li><li><a href="https://www.cnblogs.com/echo-cheng/p/7309406.html">3. win10 mongodb的安装(2196)</a></li><li><a href="https://www.cnblogs.com/echo-cheng/p/7274632.html">4. 第一次使用plotly画图遇到的问题(1672)</a></li><li><a href="https://www.cnblogs.com/echo-cheng/p/8561171.html">5. 使用GloVe(c语言版)训练自定义语料(1010)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap" style="display: none;">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="https://www.cnblogs.com/echo-cheng/p/6814909.html">1. 线程的启动的两种方法，Runnable接口，run（）的调用(3)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2019 hello_echo
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+
+</body></html>
